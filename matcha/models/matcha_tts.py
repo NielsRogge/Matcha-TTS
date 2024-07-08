@@ -4,6 +4,8 @@ import random
 
 import torch
 
+from huggingface_hub import PyTorchModelHubMixin
+
 import matcha.utils.monotonic_align as monotonic_align
 from matcha import utils
 from matcha.models.baselightningmodule import BaseLightningClass
@@ -20,7 +22,7 @@ from matcha.utils.model import (
 log = utils.get_pylogger(__name__)
 
 
-class MatchaTTS(BaseLightningClass):  # 🍵
+class MatchaTTS(BaseLightningClass, PyTorchModelHubMixin):  # 🍵
     def __init__(
         self,
         n_vocab,
